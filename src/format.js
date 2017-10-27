@@ -11,6 +11,12 @@ class Formatter {
 		this.resetText = "\x1b[0m";
 	}
 
+	displayMessage(text, color) {
+		text = this.undent(text);
+		console.log(color + text);
+		this.reset();
+	}
+
 	//Reset text color to whatever is normal for terminal
 	reset() {
 		console.log("\x1b[0m");
@@ -18,23 +24,17 @@ class Formatter {
 
 	//Display message in green text
 	success(text) {
-		text = this.undent(text);
-		console.log(`\x1b[32m${text}`);
-		this.reset();
+		this.displayMessage(text, "\x1b[32m");
 	}
 
 	//Display message in red text
 	error(text) {
-		text = this.undent(text);
-		console.log(`\x1b[31m${text}`);
-		this.reset();
+		this.displayMessage(text, "\x1b[31m");
 	}
 
 	//Display message in yellow text
 	info(text) {
-		text = this.undent(text);
-		console.log(`\x1b[33m${text}`);
-		this.reset();
+		this.displayMessage(text, "\x1b[33m");
 	}
 
 	//Remove newlines and indentation (added for readability) from text
