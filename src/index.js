@@ -55,7 +55,6 @@ yargs.usage("Usage: node port_scanner.js [options]")
 
 class PortScanner {
     constructor(args) {
-        console.log(args.s);
         //Defaults for host and timeout set in yargs config
         this.host = args.host;
         this.timeout = args.timeout;
